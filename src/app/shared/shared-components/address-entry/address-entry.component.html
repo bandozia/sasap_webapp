@@ -1,0 +1,60 @@
+<form [formGroup]="addressForm">
+    <div fxLayout="row" fxLayoutGap="20px">
+        <div fxFlex="70">
+            <mat-form-field class="full-width">
+                <mat-label>CEP</mat-label>
+                <input #cepInput formControlName="cep" maxlength="8" placeholder="apenas numeros" matInput>
+            </mat-form-field>
+        </div>
+    
+        <div fxFlex>
+            <button class="full-width" type="button" mat-raised-button (click)="searchAddress(cepInput.value)">buscar</button>
+        </div>
+        <div fxFlex *ngIf="isSearching">                        
+            <mat-spinner diameter="30"></mat-spinner>
+        </div>
+    </div>
+    
+    <mat-form-field class="full-width">
+        <mat-label>Logradouro</mat-label>
+        <input [value]="address?.street" formControlName="street" matInput placeholder="ex: Rua tal tal">
+    </mat-form-field>
+    
+    <div fxLayout="row" fxLayoutGap="20px">
+        <div fxFlex="40">
+            <mat-form-field class="full-width">
+                <mat-label>Bairro</mat-label>
+                <input [value]="address?.neighborhood" formControlName="neighborhood" matInput>
+            </mat-form-field>
+        </div>
+        <div fxFlex="30">
+            <mat-form-field class="full-width">
+                <mat-label>Numero</mat-label>
+                <input formControlName="streetNumber" matInput>
+            </mat-form-field>
+        </div>
+        <div fxFlex>
+            <mat-form-field class="full-width">
+                <mat-label>Complemento</mat-label>
+                <input formControlName="complement" matInput placeholder="ex: apto 91">
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div fxLayout="row" fxLayoutGap="20px">
+        <div fxFlex="70">
+            <mat-form-field class="full-width">
+                <mat-label>Cidade</mat-label>
+                <input [value]="address?.city" formControlName="city" matInput>
+            </mat-form-field>
+        </div>
+        <div fxFlex>
+            <mat-form-field class="full-width">
+                <mat-label>Estado</mat-label>
+                <input [value]="address?.state" formControlName="state" matInput placeholder="UF">
+                <mat-error>isso nao parece uma uf</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    
+</form>

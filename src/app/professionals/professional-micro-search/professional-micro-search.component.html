@@ -1,0 +1,18 @@
+<div>
+    <mat-form-field class="example-form-field" fxFill appearance="outline">
+        <mat-label>Buscar por nome</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" autocomplete="off" (keyup)="debounce.next($event.target.value)">
+    </mat-form-field>
+    
+    <mat-selection-list (selectionChange)="teste($event.option.value)" *ngIf="professionalsList$ | async as professionals; else loading" [multiple]="false">
+        <mat-list-option *ngFor="let professional of professionals" [value]="professional" >
+            {{professional.name}} | {{professional.profession.label}}
+        </mat-list-option>
+    </mat-selection-list>
+    
+    <ng-template #loading>
+        <mat-spinner *ngIf="search" diameter="30"></mat-spinner>    
+    </ng-template>
+    
+</div>

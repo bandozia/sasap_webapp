@@ -1,0 +1,22 @@
+<header class="main-header mat-elevation-z6" *ngIf="user$ | async as user">
+    <button mat-button [matMenuTriggerFor]="cadMenu"> <mat-icon aria-hidden="false">group_add</mat-icon> Cadastrar</button>    
+    <mat-menu #cadMenu="matMenu">
+        <a mat-menu-item [routerLink]="['profissionais', 'cadastrar']"> <mat-icon aria-hidden="false">engineering</mat-icon>  Profissionais</a>
+        <a mat-menu-item [routerLink]="['clientes', 'cadastrar']" > <mat-icon aria-hidden="false">people</mat-icon>  Clientes</a>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="manageMenu"> <mat-icon aria-hidden="false">assignment</mat-icon> Gerenciar</button>
+    <mat-menu #manageMenu="matMenu">
+        <a mat-menu-item [routerLink]="['profissionais']"> <mat-icon aria-hidden="false">engineering</mat-icon>  Profissionais</a>
+        <a mat-menu-item> <mat-icon aria-hidden="false">people</mat-icon>  Clientes</a>
+    </mat-menu>
+
+    <div style="float: right;">
+        <button mat-button [matMenuTriggerFor]="userMenu"> <mat-icon aria-hidden="false">account_circle</mat-icon> {{user.name}}</button>
+        <mat-menu #userMenu="matMenu">            
+            <a mat-menu-item (click)="logout()"> <mat-icon aria-hidden="false">exit_to_app</mat-icon>  logout</a>
+        </mat-menu>
+
+    </div>
+
+</header>

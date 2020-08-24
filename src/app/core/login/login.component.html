@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem">
+
+    <div class="login-main-div mat-elevation-z5">
+        <h1>Login</h1>
+        <hr />
+        <form [formGroup]="formGroup" (submit)="login()">
+            <mat-form-field appearance="outline" fxFill>
+                <mat-label>Quem usa?</mat-label>
+                <input matInput formControlName="userName">
+                <mat-icon matSuffix color="primary">account_box</mat-icon>
+                <mat-error>quem e voce?</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFill>
+                <mat-label>Senha</mat-label>
+                <input type="password" matInput formControlName="pass">
+                <mat-icon matSuffix color="primary">lock</mat-icon>
+                <mat-error>sua senha</mat-error>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="end center">
+                <mat-spinner diameter="30" *ngIf="waitingResult"></mat-spinner>
+                <button [disabled]="formGroup.invalid" *ngIf="!waitingResult" type="submit" mat-raised-button
+                    color="primary">entrar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

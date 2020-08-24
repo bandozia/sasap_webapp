@@ -1,0 +1,30 @@
+.toolbar {
+    height: 4rem;
+    border-bottom: dashed 1px #cccccc;    
+}
+
+table {
+    width: 100%;
+}
+  
+tr.professional-detail-row {
+    height: 0;
+}
+  
+tr.professional-element-row:not(.professional-expanded-row):hover {
+    background: whitesmoke;    
+}
+  
+tr.professional-element-row:not(.professional-expanded-row):active {
+    background: #efefef;
+}
+  
+.professional-element-row td {
+    border-bottom-width: 0;
+}
+  
+.professional-element-detail {
+    overflow: hidden;
+    display: flex;
+} 
+
